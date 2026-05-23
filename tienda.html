@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOTH STORE — Tienda</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+
+        <header class="header-mobile">
+            <h1 class="logo">CLOTH STORE</h1>
+            <button class="open-menu" id="open-menu">
+                <i class="bi bi-list"></i>
+            </button>
+        </header>
+
+        <aside>
+            <button class="close-menu" id="close-menu">
+                <i class="bi bi-x"></i>
+            </button>
+            <header>
+                <h1 class="logo">CLOTH STORE</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <button id="todos" class="boton-menu boton-categoria active">
+                            <i class="bi bi-hand-index-thumb-fill"></i> Todos los productos
+                        </button>
+                    </li>
+                    <li>
+                        <button id="abrigos" class="boton-menu boton-categoria">
+                            <i class="bi bi-hand-index-thumb"></i> Abrigos
+                        </button>
+                    </li>
+                    <li>
+                        <button id="camisetas" class="boton-menu boton-categoria">
+                            <i class="bi bi-hand-index-thumb"></i> Camisetas
+                        </button>
+                    </li>
+                    <li>
+                        <button id="pantalones" class="boton-menu boton-categoria">
+                            <i class="bi bi-hand-index-thumb"></i> Pantalones
+                        </button>
+                    </li>
+                    <li>
+    <button id="bermudas" class="boton-menu boton-categoria">
+        <i class="bi bi-hand-index-thumb"></i> Bermudas
+    </button>
+</li>
+<li>
+    <button id="calzados" class="boton-menu boton-categoria">
+        <i class="bi bi-hand-index-thumb"></i> Calzados
+    </button>
+</li>
+             <li>
+    <button id="accesorios" class="boton-menu boton-categoria">
+        <i class="bi bi-hand-index-thumb"></i> Accesorios de moda
+    </button>
+</li>
+             
+      
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./carrito.html">
+                            <i class="bi bi-cart-fill"></i> Carrito
+                            <span id="numerito" class="numerito">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="boton-menu" href="./index.html">
+                            <i class="bi bi-house-fill"></i> Ir a inicio
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2025 CLOTH STORE</p>
+            </footer>
+        </aside>
+
+        <main>
+            <h2 class="titulo-principal" id="titulo-principal">Todos los productos</h2>
+
+            <!-- BARRA DE BÚSQUEDA + ORDENAR + CONTADOR -->
+            <div class="barra-herramientas">
+                <div class="buscador-wrap">
+                    <i class="bi bi-search buscador-icono"></i>
+                    <input
+                        type="text"
+                        id="buscador"
+                        class="buscador"
+                        placeholder="Buscar producto..."
+                    >
+                </div>
+                <select id="ordenar" class="ordenar-select">
+                    <option value="default">Ordenar por</option>
+                    <option value="menor">Precio: menor a mayor</option>
+                    <option value="mayor">Precio: mayor a menor</option>
+                    <option value="az">Nombre: A → Z</option>
+                    <option value="za">Nombre: Z → A</option>
+                </select>
+            </div>
+            <p class="contador-productos" id="contador-productos">Mostrando 0 productos</p>
+
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!-- Se rellena con main.js -->
+            </div>
+        </main>
+
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:999; align-items:center; justify-content:center; cursor:zoom-out;">
+        <button id="lightbox-cerrar" style="position:absolute; top:1rem; right:1.5rem; background:none; border:0; color:white; font-size:2.5rem; cursor:pointer;">&times;</button>
+        <img id="lightbox-img" src="" alt="" style="max-width:90vw; max-height:90vh; border-radius:1rem; transition:transform .3s; cursor:zoom-in;">
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/menu.js"></script>
+
+    <script>
+        const lightbox       = document.getElementById("lightbox");
+        const lightboxImg    = document.getElementById("lightbox-img");
+        const lightboxCerrar = document.getElementById("lightbox-cerrar");
+        let zoom = false;
+
+        document.addEventListener("click", (e) => {
+            if (e.target.classList.contains("producto-imagen")) {
+                lightboxImg.src = e.target.src;
+                lightboxImg.alt = e.target.alt;
+                lightboxImg.style.transform = "scale(1)";
+                zoom = false;
+                lightbox.style.display = "flex";
+                document.body.style.overflow = "hidden";
+            }
+        });
+
+        lightboxImg.addEventListener("click", (e) => {
+            e.stopPropagation();
+            zoom = !zoom;
+            lightboxImg.style.transform = zoom ? "scale(2)" : "scale(1)";
+            lightboxImg.style.cursor    = zoom ? "zoom-out" : "zoom-in";
+        });
+
+        lightboxCerrar.addEventListener("click", cerrarLightbox);
+        lightbox.addEventListener("click", cerrarLightbox);
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrarLightbox(); });
+
+        function cerrarLightbox() {
+            lightbox.style.display = "none";
+            document.body.style.overflow = "";
+            zoom = false;
+        }
+    </script>
+</body>
+</html>

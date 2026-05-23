@@ -1,0 +1,302 @@
+[
+    {
+    "id": "abrigo-01",
+    "titulo": "Campera Urbana Gris",
+    "descripcion": "Campera de abrigo liviana, ideal para el invierno. Talle S al XL.",
+       "badge": "nuevo",
+    "imagen": "./img/abrigos/01.jpg",
+    "categoria": {
+        "nombre": "Abrigos",
+        "id": "abrigos"
+    },
+    "precio": 150000
+},
+    {
+        "id": "abrigo-02",
+        "titulo": "Abrigo 02",
+        "imagen": "./img/abrigos/02.jpg",
+        "categoria": {
+            "nombre": "Abrigos",
+            "id": "abrigos"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "abrigo-03",
+        "titulo": "Abrigo 03",
+        "imagen": "./img/abrigos/03.jpg",
+        "categoria": {
+            "nombre": "Abrigos",
+            "id": "abrigos"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "abrigo-04",
+        "titulo": "Abrigo 04",
+        "imagen": "./img/abrigos/04.jpg",
+        "categoria": {
+            "nombre": "Abrigos",
+            "id": "abrigos"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "abrigo-05",
+        "titulo": "Abrigo 05",
+        "imagen": "./img/abrigos/05.jpg",
+        "categoria": {
+            "nombre": "Abrigos",
+            "id": "abrigos"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-01",
+        "titulo": "Camiseta 01",
+        "imagen": "./img/camisetas/01.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-02",
+        "titulo": "Camiseta 02",
+        "imagen": "./img/camisetas/02.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-03",
+        "titulo": "Camiseta 03",
+        "imagen": "./img/camisetas/03.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-04",
+        "titulo": "Camiseta 04",
+        "imagen": "./img/camisetas/04.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-05",
+        "titulo": "Camiseta 05",
+        "imagen": "./img/camisetas/05.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-06",
+        "titulo": "Camiseta 06",
+        "imagen": "./img/camisetas/06.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-07",
+        "titulo": "Camiseta 07",
+        "imagen": "./img/camisetas/07.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "camiseta-08",
+        "titulo": "Camiseta 08",
+        "imagen": "./img/camisetas/08.jpg",
+        "categoria": {
+            "nombre": "Camisetas",
+            "id": "camisetas"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pantalon-01",
+        "titulo": "Pantalón 01",
+        "imagen": "./img/pantalones/01.jpg",
+        "categoria": {
+            "nombre": "Pantalones",
+            "id": "pantalones"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pantalon-02",
+        "titulo": "Pantalón 02",
+        "imagen": "./img/pantalones/02.jpg",
+        "categoria": {
+            "nombre": "Pantalones",
+            "id": "pantalones"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pantalon-03",
+        "titulo": "Pantalón 03",
+        "imagen": "./img/pantalones/03.jpg",
+        "categoria": {
+            "nombre": "Pantalones",
+            "id": "pantalones"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pantalon-04",
+        "titulo": "Pantalón 04",
+        "imagen": "./img/pantalones/04.jpg",
+        "categoria": {
+            "nombre": "Pantalones",
+            "id": "pantalones"
+        },
+        "precio": 1000
+    },
+    {
+        "id": "pantalon-05",
+        "titulo": "Pantalón 05",
+        "imagen": "./img/pantalones/05.jpg",
+        "categoria": {
+            "nombre": "Pantalones",
+            "id": "pantalones"
+        },
+        "precio": 1000
+    },
+
+
+    {
+    "id": "bermuda-01",
+    "titulo": "Bermuda Cargo",
+    "descripcion": "Bermuda cargo con bolsillos laterales.",
+    "imagen": "./img/bermudas/01.jpg",
+    "categoria": {
+        "nombre": "Bermudas",
+        "id": "bermudas"
+    },
+    "precio": 85000
+},
+
+
+{
+    "id": "bermuda-02",
+    "titulo": "Bermuda cargo",
+    "descripcion": "Bermuda cargo con bolsillos laterales.",
+    "imagen": "./img/bermudas/02.jpg",
+    "categoria": {
+        "nombre": "Bermudas",
+        "id": "bermudas"
+    },
+    "precio": 85000
+},
+{
+    "id": "calzado-01",
+    "titulo": "Zapatilla Urbana",
+    "descripcion": "Zapatilla liviana para uso diario.",
+    "imagen": "./img/calzados/01.jpg",
+    "categoria": {
+        "nombre": "Calzados",
+        "id": "calzados"
+    },
+    "precio": 200000
+},
+{
+    "id": "calzado-02",
+    "titulo": "Zapatilla Urbana",
+    "descripcion": "Zapatilla liviana para uso diario.",
+    "imagen": "./img/calzados/02.jpg",
+    "categoria": {
+        "nombre": "Calzados",
+        "id": "calzados"
+    },
+    "precio": 200000
+},
+{
+    "id": "calzado-03",
+    "titulo": "Zapatilla Urbana",
+    "descripcion": "Zapatilla liviana para uso diario.",
+    "imagen": "./img/calzados/03.jpg",
+    "categoria": {
+        "nombre": "Calzados",
+        "id": "calzados"
+    },
+    "precio": 200000
+},
+{
+    "id": "calzado-04",
+    "titulo": "Zapatilla Urbana",
+    "descripcion": "Zapatilla liviana para uso diario.",
+    "imagen": "./img/calzados/04.jpg",
+    "categoria": {
+        "nombre": "Calzados",
+        "id": "calzados"
+    },
+    "precio": 200000
+},
+{
+    "id": "calzado-05",
+    "titulo": "Zapatilla Urbana",
+    "descripcion": "Zapatilla liviana para uso diario.",
+    "imagen": "./img/calzados/05.jpg",
+    "categoria": {
+        "nombre": "Calzados",
+        "id": "calzados"
+    },
+    "precio": 200000
+},
+
+
+{
+    "id": "accesorios-01",
+    "titulo": "Billetera",
+    "descripcion": "Tu accesorio dice mucho de ti.",
+    "imagen": "./img/accesorios/01.jpg",
+    "categoria": {
+        "nombre": "Accesorios",
+        "id": "accesorios"
+    },
+    "precio": 200000
+},
+{
+    "id": "accesorios-02",
+    "titulo": "Cadena",
+    "descripcion": "Tu accesorio dice mucho de ti.",
+    "imagen": "./img/accesorios/02.jpg",
+    "categoria": {
+        "nombre": "Accesorios",
+        "id": "accesorios"
+    },
+    "precio": 200000
+},
+
+{
+    "id": "accesorios-03",
+    "titulo": "Cinto",
+    "descripcion": "Tu accesorio dice mucho de ti.",
+    "imagen": "./img/accesorios/03.jpg",
+    "categoria": {
+        "nombre": "Accesorios",
+        "id": "accesorios"
+    },
+    "precio": 200000
+}
+
+]

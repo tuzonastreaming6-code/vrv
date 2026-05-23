@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOTH STORE — Tu moda, tu estilo</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --clr-main:       #ffffff;
+        --clr-main-dark:  #243817;
+        --clr-main-mid:   #f0f4ee;
+        --clr-main-light: #4e7a35;
+        --clr-main-pale:  #eef3eb;
+        --clr-accent:     #3a5a28;
+        --clr-white:      #ffffff;
+        --clr-bg:         #f9f8f5;
+        --clr-gray-light: #f1efe8;
+        --clr-gray:       #888780;
+        --clr-border:     #e2e0d8;
+        --clr-text:       #1a1a18;
+        --clr-text-muted: #5f5e5a;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Rubik', sans-serif; background-color: var(--clr-bg); color: var(--clr-text); overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* =====================
+       NAVBAR
+    ===================== */
+    .navbar {
+        background-color: var(--clr-white);
+        border-bottom: 0.5px solid var(--clr-border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 3rem;
+        position: sticky;
+        top: 0;
+        z-index: 200;
+    }
+
+    .navbar-logo { color: var(--clr-text); font-size: 1.3rem; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+    .navbar-links { display: flex; gap: 2.5rem; }
+    .navbar-links a { color: var(--clr-text-muted); font-size: .82rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; transition: color .2s; }
+    .navbar-links a:hover { color: var(--clr-accent); }
+
+    .navbar-cta {
+        background: var(--clr-accent);
+        color: var(--clr-white);
+        border: 0;
+        padding: .55rem 1.5rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        font-size: .82rem;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        transition: background .2s;
+    }
+
+    .navbar-cta:hover { background: var(--clr-main-dark); }
+
+    .navbar-mobile-btn {
+        display: none;
+        background: transparent;
+        border: 0;
+        color: var(--clr-text);
+        font-size: 1.8rem;
+        cursor: pointer;
+        line-height: 1;
+    }
+
+    /* =====================
+       MENÚ MOBILE
+    ===================== */
+    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 300; }
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu-overlay { position: absolute; inset: 0; background: rgba(0,0,0,.5); }
+
+    .mobile-menu-drawer {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 75%;
+        max-width: 300px;
+        height: 100%;
+        background: var(--clr-white);
+        padding: 2rem 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        box-shadow: -4px 0 24px rgba(0,0,0,.1);
+    }
+
+    .mobile-menu-header { display: flex; justify-content: space-between; align-items: center; }
+    .mobile-menu-logo { font-weight: 800; font-size: 1.1rem; text-transform: uppercase; letter-spacing: .04em; color: var(--clr-text); }
+    .mobile-menu-close { background: transparent; border: 0; font-size: 1.8rem; cursor: pointer; color: var(--clr-text); line-height: 1; }
+
+    .mobile-menu-links { display: flex; flex-direction: column; gap: .2rem; }
+    .mobile-menu-links a { color: var(--clr-text-muted); font-size: .9rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; padding: .9rem 0; border-bottom: 0.5px solid var(--clr-border); transition: color .2s; }
+    .mobile-menu-links a:hover { color: var(--clr-accent); }
+
+    .mobile-menu-cta {
+        background: var(--clr-accent);
+        color: var(--clr-white);
+        border: 0;
+        padding: .9rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        font-size: .88rem;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        text-align: center;
+        display: block;
+        transition: background .2s;
+    }
+
+    .mobile-menu-cta:hover { background: var(--clr-main-dark); }
+
+    /* =====================
+       HERO
+    ===================== */
+    #inicio {
+        background-color: var(--clr-white);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        min-height: 480px;
+    }
+
+    .hero-left { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center; }
+
+    .hero-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: var(--clr-main-pale);
+        color: var(--clr-accent);
+        font-size: .72rem;
+        font-weight: 700;
+        padding: .4rem 1rem;
+        border-radius: 2rem;
+        margin-bottom: 1.4rem;
+        width: fit-content;
+        border: 1px solid #c8dfc0;
+        text-transform: uppercase;
+        letter-spacing: .08em;
+    }
+
+    .hero-left h1 { color: var(--clr-text); font-size: 2.8rem; font-weight: 900; line-height: 1.12; margin-bottom: 1.1rem; letter-spacing: -.03em; text-transform: uppercase; }
+    .hero-left h1 span { color: var(--clr-accent); }
+    .hero-desc { color: var(--clr-text-muted); font-size: .92rem; line-height: 1.75; margin-bottom: 2.2rem; max-width: 360px; }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+        background: var(--clr-accent);
+        color: var(--clr-white);
+        border: 0;
+        padding: .8rem 2rem;
+        border-radius: 2rem;
+        font-weight: 700;
+        font-size: .88rem;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        transition: background .2s;
+        display: inline-flex;
+        align-items: center;
+        gap: .4rem;
+    }
+
+    .btn-primary:hover { background: var(--clr-main-dark); }
+
+    .btn-secondary {
+        background: transparent;
+        color: var(--clr-text);
+        border: 1.5px solid var(--clr-border);
+        padding: .8rem 2rem;
+        border-radius: 2rem;
+        font-weight: 500;
+        font-size: .88rem;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        transition: border-color .2s, color .2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--clr-accent); color: var(--clr-accent); }
+
+    .hero-right { display: grid; grid-template-columns: 2fr 1fr; }
+
+    .hero-logo-panel { background: var(--clr-main-mid); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; padding: 2.5rem; }
+
+    .hero-photos { display: flex; flex-direction: column; }
+
+    .photo-slot { flex: 1; background: var(--clr-gray-light); display: flex; align-items: center; justify-content: center; flex-direction: column; gap: .5rem; border-left: 1px solid var(--clr-border); padding: 1rem; overflow: hidden; }
+    .photo-slot:first-child { border-bottom: 1px solid var(--clr-border); }
+
+    /* =====================
+       STRIP
+    ===================== */
+    .strip { background: var(--clr-white); border-top: 0.5px solid var(--clr-border); border-bottom: 0.5px solid var(--clr-border); display: flex; justify-content: center; flex-wrap: wrap; }
+
+    .strip-item { display: flex; align-items: center; gap: .65rem; color: var(--clr-text-muted); font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .9rem 2rem; border-right: 0.5px solid var(--clr-border); }
+    .strip-item:last-child { border-right: 0; }
+
+    .strip-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--clr-accent); flex-shrink: 0; }
+
+    /* =====================
+       FEATURES
+    ===================== */
+    #productos-preview { padding: 5rem 3rem; background: var(--clr-bg); }
+
+    .section-eyebrow { color: var(--clr-main-light); font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: .5rem; }
+    .section-title { color: var(--clr-text); font-size: 1.7rem; font-weight: 800; margin-bottom: .5rem; letter-spacing: -.025em; }
+    .section-sub   { color: var(--clr-gray); font-size: .88rem; line-height: 1.7; margin-bottom: 2.5rem; max-width: 440px; }
+
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+
+    .feat-card { background: var(--clr-white); border-radius: 1.3rem; padding: 1.6rem; border: 0.5px solid var(--clr-border); transition: border-color .2s; }
+    .feat-card:hover { border-color: var(--clr-accent); }
+
+    .feat-icon { width: 46px; height: 46px; border-radius: 1rem; background: var(--clr-main-pale); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; color: var(--clr-accent); font-size: 1.2rem; }
+    .feat-card h3 { color: var(--clr-text); font-size: .95rem; font-weight: 700; margin-bottom: .5rem; }
+    .feat-card p  { color: var(--clr-gray); font-size: .8rem; line-height: 1.65; }
+
+    /* =====================
+       NOSOTROS
+    ===================== */
+    #nosotros { padding: 0 2rem 4rem; }
+
+    .about-inner { background: var(--clr-main-dark); border-radius: 2rem; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; }
+
+    .about-photo-panel { background: var(--clr-main-mid); display: flex; align-items: center; justify-content: center; padding: 3rem 2.5rem; min-height: 320px; }
+
+    .about-text-panel { padding: 3rem 2.5rem; display: flex; flex-direction: column; justify-content: center; }
+
+    .about-eyebrow { color: #8ab87a; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: .7rem; }
+    .about-text-panel h2 { color: var(--clr-white); font-size: 1.5rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; letter-spacing: -.02em; }
+    .about-text-panel p  { color: rgba(255,255,255,.55); font-size: .85rem; line-height: 1.8; margin-bottom: 2rem; }
+
+    .stats-row { display: flex; gap: 2rem; flex-wrap: wrap; }
+    .stat { border-left: 2px solid var(--clr-main-light); padding-left: .9rem; }
+    .stat-num   { color: var(--clr-white); font-size: 1.5rem; font-weight: 800; letter-spacing: -.02em; }
+    .stat-label { color: #8ab87a; font-size: .7rem; font-weight: 500; margin-top: .1rem; }
+
+    /* =====================
+       CTA
+    ===================== */
+    .cta-section { padding: 5rem 3rem; text-align: center; background: var(--clr-bg); }
+
+    .cta-inner { background: var(--clr-white); border-radius: 2rem; padding: 3.5rem 2rem; border: 0.5px solid var(--clr-border); max-width: 600px; margin: 0 auto; }
+    .cta-inner h2 { color: var(--clr-text); font-size: 1.6rem; font-weight: 700; margin-bottom: .7rem; letter-spacing: -.025em; }
+    .cta-inner p  { color: var(--clr-gray); font-size: .88rem; line-height: 1.7; margin-bottom: 2rem; }
+
+    .cta-btn {
+        background: var(--clr-accent);
+        color: var(--clr-white);
+        border: 0;
+        padding: 1rem 2.8rem;
+        border-radius: 2rem;
+        font-size: .92rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-family: 'Rubik', sans-serif;
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        transition: background .2s;
+    }
+
+    .cta-btn:hover { background: var(--clr-main-dark); }
+
+    /* =====================
+       FOOTER
+    ===================== */
+    footer {
+        background: var(--clr-main-dark);
+        padding: 1.4rem 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    /* Todos los links del footer en blanco — soluciona el color rojo */
+    footer a { color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
+    footer a:hover { color: var(--clr-white); }
+
+    .footer-logo { color: var(--clr-white); font-weight: 800; font-size: 1.05rem; text-transform: uppercase; letter-spacing: .04em; }
+    .footer-copy { color: rgba(255,255,255,.35); font-size: .78rem; }
+
+    .footer-links { display: flex; gap: 1.8rem; }
+    .footer-links a { font-size: .78rem; }
+
+    .footer-info { display: flex; flex-direction: column; gap: .5rem; }
+    .footer-social { font-size: .82rem; font-weight: 500; display: flex; align-items: center; gap: .5rem; }
+
+    /* =====================
+       MEDIA QUERIES
+    ===================== */
+    @media (max-width: 900px) {
+        .feat-grid { grid-template-columns: 1fr 1fr; }
+        #inicio { grid-template-columns: 1fr; }
+        .hero-right { display: none; }
+        .hero-left { padding: 3rem 2rem 3.5rem; }
+        .hero-left h1 { font-size: 2rem; }
+        .about-inner { grid-template-columns: 1fr; }
+        .about-photo-panel { min-height: 220px; padding: 2rem; }
+    }
+
+    @media (max-width: 650px) {
+        .navbar { padding: 1rem 1.2rem; }
+        .navbar-links, .navbar-cta { display: none; }
+        .navbar-mobile-btn { display: block; }
+
+        .hero-left { padding: 2.5rem 1.5rem; }
+        .hero-left h1 { font-size: 1.9rem; }
+        .hero-desc { font-size: .85rem; }
+
+        .strip { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
+        .strip-item { padding: .75rem 1.2rem; font-size: .72rem; white-space: nowrap; }
+
+        #productos-preview { padding: 3rem 1.2rem; }
+        .feat-grid { grid-template-columns: 1fr; }
+
+        #nosotros { padding: 0 1rem 3rem; }
+        .about-photo-panel { min-height: 180px; padding: 1.5rem; }
+        .about-text-panel { padding: 1.8rem 1.5rem; }
+        .about-text-panel h2 { font-size: 1.2rem; }
+        .stats-row { gap: 1rem; }
+
+        .cta-section { padding: 3rem 1.2rem; }
+        .cta-inner { padding: 2rem 1.2rem; border-radius: 1.2rem; }
+        .cta-inner h2 { font-size: 1.2rem; }
+        .cta-btn { padding: .85rem 1.8rem; font-size: .85rem; }
+
+        footer { padding: 1.2rem 1.5rem; flex-direction: column; text-align: center; }
+        .footer-links { justify-content: center; }
+        .footer-info { align-items: center; }
+    }
+
+    @media (max-width: 400px) {
+        .hero-left h1 { font-size: 1.6rem; }
+        .hero-btns { flex-direction: column; }
+        .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+    }
+</style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <span class="navbar-logo">CLOTH STORE</span>
+        <ul class="navbar-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#productos-preview">Productos</a></li>
+        </ul>
+        <a href="./tienda.html" class="navbar-cta">Ver tienda</a>
+        <button class="navbar-mobile-btn" id="mobile-menu-btn">
+            <i class="bi bi-list"></i>
+        </button>
+    </nav>
+
+    <!-- MENÚ MOBILE -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+        <div class="mobile-menu-drawer">
+            <div class="mobile-menu-header">
+                <span class="mobile-menu-logo">Cloth Store</span>
+                <button class="mobile-menu-close" id="mobile-menu-close">
+                    <i class="bi bi-x"></i>
+                </button>
+            </div>
+            <ul class="mobile-menu-links">
+                <li><a href="#inicio"           id="ml-inicio">Inicio</a></li>
+                <li><a href="#nosotros"          id="ml-nosotros">Nosotros</a></li>
+                <li><a href="#productos-preview" id="ml-productos">Productos</a></li>
+            </ul>
+            <a href="./tienda.html" class="mobile-menu-cta">Ver tienda</a>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <section id="inicio">
+        <div class="hero-left">
+            <span class="hero-tag">
+                <i class="bi bi-stars"></i>
+                Nueva colección disponible
+            </span>
+            <h1>Tu moda,<br><span>tu estilo.</span></h1>
+            <p class="hero-desc">
+                Ropa de calidad para cada momento. Explorá abrigos, camisetas
+                y pantalones con diseño y al mejor precio.
+            </p>
+            <div class="hero-btns">
+                <a href="./tienda.html" class="btn-primary">
+                    Ver productos <i class="bi bi-arrow-right"></i>
+                </a>
+                <a href="#nosotros" class="btn-secondary">Saber más</a>
+            </div>
+        </div>
+        <div class="hero-right">
+            <div class="hero-logo-panel">
+                <img src="./img/logo/logo.webp" alt="CLOTH STORE" style="max-width:450px;">
+            </div>
+            <div class="hero-photos">
+                <div class="photo-slot">
+                    <img src="./img/logo/tienda2.jpg" alt="Producto" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="photo-slot">
+                    <img src="./img/logo/tienda.jpeg" alt="Foto tienda" style="width:100%;height:100%;object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STRIP -->
+    <div class="strip">
+        <div class="strip-item"><span class="strip-dot"></span> Envío a todo el país</div>
+        <div class="strip-item"><span class="strip-dot"></span> Pago seguro</div>
+        <div class="strip-item"><span class="strip-dot"></span> Atención personalizada</div>
+    </div>
+
+    <!-- FEATURES -->
+    <section id="productos-preview">
+        <p class="section-eyebrow">¿Por qué elegirnos?</p>
+        <h2 class="section-title">Todo lo que necesitás</h2>
+        <p class="section-sub">Pensamos en cada detalle para que tu experiencia de compra sea simple, segura y agradable.</p>
+        <div class="feat-grid">
+            <div class="feat-card">
+                <div class="feat-icon"><i class="bi bi-truck"></i></div>
+                <h3>Envío rápido</h3>
+                <p>Recibí tu pedido directamente en tu puerta, a cualquier punto del país.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="bi bi-patch-check"></i></div>
+                <h3>Calidad garantizada</h3>
+                <p>Seleccionamos cada prenda con cuidado para asegurar los mejores materiales y acabados.</p>
+            </div>
+            <div class="feat-card">
+                <div class="feat-icon"><i class="bi bi-arrow-repeat"></i></div>
+                <h3>Clientes Satisfechos</h3>
+                <p>Tenemos más de 500 clientes satisfechos.</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:2.5rem;">
+            <a href="./tienda.html" class="cta-btn">
+                Ver todos los productos <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros">
+        <div class="about-inner">
+            <div class="about-photo-panel">
+                <img src="./img/logo/vendedores.webp" alt="Nuestro equipo"
+                     style="width:100%;height:100%;object-fit:cover;border-radius:1.4rem;">
+            </div>
+            <div class="about-text-panel">
+                <p class="about-eyebrow">Sobre nosotros</p>
+                <h2>Una tienda hecha con pasión por la moda</h2>
+                <p>Nacimos con la idea de que vestirse bien no tiene que ser caro. Cada prenda es elegida con cuidado para que te sientas cómodo y con estilo en cualquier momento del día.</p>
+                <div class="stats-row">
+                    <div class="stat"><div class="stat-num">+500</div><div class="stat-label">Clientes felices</div></div>
+                    <div class="stat"><div class="stat-num">+80</div><div class="stat-label">Productos</div></div>
+                    <div class="stat"><div class="stat-num">3 años</div><div class="stat-label">En el mercado</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-inner">
+            <h2>¿Listo para renovar tu look?</h2>
+            <p>Explorá toda nuestra colección y encontrá exactamente lo que estabas buscando, al mejor precio.</p>
+            <a href="./tienda.html" class="cta-btn">Ir a la tienda <i class="bi bi-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+   <footer>
+    <span class="footer-logo">CLOTH STORE</span>
+    <p class="footer-copy">© 2025 Cloth Store. Todos los derechos reservados.</p>
+    <div class="footer-info">
+        <a href="https://www.instagram.com/TU_USUARIO" target="_blank" class="footer-social">
+            <i class="bi bi-instagram"></i> @TuUsuario
+        </a>
+        <a href="https://maps.google.com/?q=TU+DIRECCION" target="_blank" class="footer-social">
+            <i class="bi bi-geo-alt-fill"></i> Piribebuy, Cordillera, Paraguay
+        </a>
+    </div>
+    <ul class="footer-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#nosotros">Nosotros</a></li>
+        <li><a href="./tienda.html">Tienda</a></li>
+    </ul>
+</footer>
+
+    <script>
+        const mobileMenuBtn     = document.getElementById("mobile-menu-btn");
+        const mobileMenu        = document.getElementById("mobile-menu");
+        const mobileMenuClose   = document.getElementById("mobile-menu-close");
+        const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+
+        function abrirMenu() { mobileMenu.classList.add("open"); document.body.style.overflow = "hidden"; }
+        function cerrarMenu() { mobileMenu.classList.remove("open"); document.body.style.overflow = ""; }
+
+        mobileMenuBtn.addEventListener("click", abrirMenu);
+        mobileMenuClose.addEventListener("click", cerrarMenu);
+        mobileMenuOverlay.addEventListener("click", cerrarMenu);
+
+        // Cerrar al hacer click en un link del menú
+        ["ml-inicio","ml-nosotros","ml-productos"].forEach(id => {
+            document.getElementById(id).addEventListener("click", cerrarMenu);
+        });
+    </script>
+
+</body>
+</html>
