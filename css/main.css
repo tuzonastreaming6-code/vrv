@@ -112,7 +112,6 @@ aside {
 }
 
 .boton-carrito.active .numerito { background-color: var(--clr-main); color: var(--clr-white); }
-
 .texto-footer { color: rgba(255,255,255,.4); font-size: .78rem; }
 
 /* =====================
@@ -221,11 +220,7 @@ main {
 
 .producto:hover { box-shadow: 0 6px 20px rgba(0,0,0,.07); transform: translateY(-2px); }
 
-/* Wrap de imagen para el badge */
-.producto-imagen-wrap {
-    position: relative;
-    overflow: hidden;
-}
+.producto-imagen-wrap { position: relative; overflow: hidden; }
 
 .producto-imagen {
     width: 100%;
@@ -269,9 +264,9 @@ main {
     flex: 1;
 }
 
-.producto-titulo     { font-size: .9rem; font-weight: 700; color: var(--clr-text); }
+.producto-titulo      { font-size: .9rem; font-weight: 700; color: var(--clr-text); }
 .producto-descripcion { font-size: .75rem; color: var(--clr-text-muted); line-height: 1.4; }
-.producto-precio     { font-size: .95rem; font-weight: 700; color: var(--clr-main); margin-top: .1rem; }
+.producto-precio      { font-size: .95rem; font-weight: 700; color: var(--clr-main); margin-top: .1rem; }
 
 .producto-agregar {
     margin-top: .4rem;
@@ -295,9 +290,7 @@ main {
    CARRITO
 ===================== */
 .contenedor-carrito { display: flex; flex-direction: column; gap: 1.5rem; }
-
 .carrito-vacio, .carrito-comprado { color: var(--clr-text); font-size: .95rem; }
-
 .carrito-productos { display: flex; flex-direction: column; gap: 1rem; }
 
 .carrito-producto {
@@ -381,14 +374,18 @@ main {
 /* =====================
    MEDIA QUERIES
 ===================== */
+
+/* Tablet grande — 4 columnas */
 @media screen and (max-width: 850px) {
-    .contenedor-productos { grid-template-columns: 1fr 1fr 1fr; }
+    .contenedor-productos { grid-template-columns: repeat(4, 1fr); }
 }
 
+/* Tablet chica — 3 columnas */
 @media screen and (max-width: 675px) {
-    .contenedor-productos { grid-template-columns: 1fr 1fr; }
+    .contenedor-productos { grid-template-columns: repeat(3, 1fr); }
 }
 
+/* Celular — 3 columnas con tarjetas compactas */
 @media screen and (max-width: 600px) {
     .wrapper { min-height: 100vh; display: flex; flex-direction: column; }
 
@@ -410,9 +407,23 @@ main {
     .boton-menu.active::before,
     .boton-menu.active::after { display: none; }
 
-    main { margin: 1rem; margin-top: 0; padding: 1.5rem; }
+    main { margin: 1rem; margin-top: 0; padding: 1rem; }
 
-    .contenedor-productos { grid-template-columns: 1fr 1fr; }
+    /* 3 columnas en celular */
+    .contenedor-productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .5rem;
+    }
+
+    /* Imagen más compacta */
+    .producto-imagen { height: 110px; }
+
+    /* Detalles más chicos */
+    .producto-detalles { padding: .5rem; gap: .15rem; }
+    .producto-titulo   { font-size: .72rem; }
+    .producto-precio   { font-size: .78rem; }
+    .producto-descripcion { display: none; } /* ocultar descripcion en mobile */
+    .producto-agregar  { font-size: .65rem; padding: .3rem; border-radius: 1rem; margin-top: .2rem; }
 
     .header-mobile {
         padding: 1rem;
@@ -437,11 +448,18 @@ main {
     .barra-herramientas { flex-direction: column; }
     .ordenar-select { width: 100%; }
 
+    .titulo-principal { font-size: 1rem; }
+
     .carrito-producto { gap: 1rem; flex-wrap: wrap; justify-content: flex-start; padding: .5rem; }
     .carrito-producto-subtotal { display: none; }
     .carrito-acciones { flex-wrap: wrap; row-gap: 1rem; }
 }
 
+/* Celular muy chico — se mantienen 3 columnas */
 @media screen and (max-width: 400px) {
-    .contenedor-productos { grid-template-columns: 1fr; }
+    .contenedor-productos {
+        grid-template-columns: repeat(3, 1fr);
+        gap: .4rem;
+    }
+    .producto-imagen { height: 90px; }
 }
